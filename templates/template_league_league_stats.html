@@ -1,0 +1,53 @@
+<!--<script type="text/javascript" src="{{url_for('static', filename='DataTables/jQuery-3.3.1/jquery-3.3.1.min.js')}}"></script>
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='DataTables/datatables.min.css')}}">
+<script type="text/javascript" src="{{url_for('static', filename='DataTables/datatables.min.js')}}"></script>
+-->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/b-1.6.1/cr-1.5.2/sc-2.0.1/sp-1.0.1/datatables.min.css"/>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/b-1.6.1/cr-1.5.2/sc-2.0.1/sp-1.0.1/datatables.min.js"></script>
+<style>
+body {
+  font-family: Consolas;
+}
+</style>
+
+<h1>League: {{league_info.name}}</h1>
+<h2>Winner: {{league_info.winner}}</h2>
+<p style="font-size: 18px">
+	<a href="/">back to main page</a>
+	<a href="/leagues">back to all leagues</a> | 
+	<a href="/league/{{league_info.leagueid}}/hero_stats">hero stats</a>
+	league stats
+	<a href="/league/{{league_info.leagueid}}/winner_stats">winner stats</a>
+</p>
+<h3>League stats</h3>
+{{table_league_stats|safe}}
+<h3>League duration stats</h3>
+{{table_league_duration_stats|safe}}
+
+
+<script>
+$(document).ready(function() {
+    $('#table_league_stats').DataTable( {
+        "paging":   false,
+        "ordering": false,
+        "info":     false,
+		"searching": false,
+		columnDefs:[{
+			targets: '_all',
+			className: 'dt-body-right'}
+			]
+    } );
+	$('#table_league_duration_stats').DataTable( {
+	"paging":   false,
+	"info":     false,
+	"order": [[ 0, "asc" ]],
+	"searching": false,
+	columnDefs:[{
+		targets: '_all',
+		className: 'dt-body-right'}
+		]
+    } );
+} );
+</script>

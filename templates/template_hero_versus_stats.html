@@ -1,0 +1,103 @@
+<!--<script type="text/javascript" src="{{url_for('static', filename='DataTables/jQuery-3.3.1/jquery-3.3.1.min.js')}}"></script>
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='DataTables/datatables.min.css')}}">
+<script type="text/javascript" src="{{url_for('static', filename='DataTables/datatables.min.js')}}"></script>
+-->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/b-1.6.1/cr-1.5.2/sc-2.0.1/sp-1.0.1/datatables.min.css"/>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/b-1.6.1/cr-1.5.2/sc-2.0.1/sp-1.0.1/datatables.min.js"></script>
+<style>
+body {
+  font-family: Consolas;
+}
+</style>
+
+<h1>Hero: {{hero_info.localized_name}}</h1>
+<img src="/static/hero_pic/{{hero_info.localized_name}}.png" height="60"/>
+<p style="font-size: 18px">
+	<a href="/">back to main page</a>
+	<a href="/heroes">back to all heroes</a> | 
+	<a href="/hero/{{hero_info.hero_id}}/league_stats">league stats</a>
+	versus stats
+</p>
+
+<div style="display: flex">
+	<div style="flex: 32%">
+		<h3>Win rate against opponent hero</h3>
+		{{table_versus_against_stats|safe}}
+	</div>
+	
+	<div style="flex: 1.5%">
+	</div>
+	
+	<div style="flex: 32%">
+		<h3>Win rate with a teammate hero</h3>
+		{{table_versus_with_stats|safe}}
+	</div>
+	
+		<div style="flex: 1.5%">
+	</div>
+	
+	<div style="flex: 32%">
+		<h3>Win rate when banning a hero</h3>
+		{{table_versus_ban_stats|safe}}
+	</div>
+	
+</div>
+
+
+<script>
+$(document).ready(function() {
+	$('#table_versus_against_stats').DataTable({
+		order: [[ 3, "desc" ]],
+		columnDefs:[{
+			targets: 1,
+			className: 'dt-body-left',
+			render: function(data, type, row, meta){
+				if(type === 'display'){
+					data = '<img src="/static/hero_pic/' + row[1]+ '.png" height="36"/>' + data;
+					data = "<a href='/hero/" + row[0] + "/versus_stats'>" + data + '</a>';
+				}
+				return data;
+			}},{
+			targets: '_all',
+			className: 'dt-body-right'
+			}
+		],
+	});
+	$('#table_versus_with_stats').DataTable({
+		order: [[ 3, "desc" ]],
+		columnDefs:[{
+			targets: 1,
+			className: 'dt-body-left',
+			render: function(data, type, row, meta){
+				if(type === 'display'){
+					data = '<img src="/static/hero_pic/' + row[1]+ '.png" height="36"/>' + data;
+					data = "<a href='/hero/" + row[0] + "/versus_stats'>" + data + '</a>';
+				}
+				return data;
+			}},{
+			targets: '_all',
+			className: 'dt-body-right'
+			}
+		],
+	});
+	$('#table_versus_ban_stats').DataTable({
+		order: [[ 3, "desc" ]],
+		columnDefs:[{
+			targets: 1,
+			className: 'dt-body-left',
+			render: function(data, type, row, meta){
+				if(type === 'display'){
+					data = '<img src="/static/hero_pic/' + row[1]+ '.png" height="36"/>' + data;
+					data = "<a href='/hero/" + row[0] + "/versus_stats'>" + data + '</a>';
+				}
+				return data;
+			}},{
+			targets: '_all',
+			className: 'dt-body-right'
+			}
+		],
+	});
+} );
+</script>

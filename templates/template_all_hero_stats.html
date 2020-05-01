@@ -1,0 +1,47 @@
+<!--<script type="text/javascript" src="{{url_for('static', filename='DataTables/jQuery-3.3.1/jquery-3.3.1.min.js')}}"></script>
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='DataTables/datatables.min.css')}}">
+<script type="text/javascript" src="{{url_for('static', filename='DataTables/datatables.min.js')}}"></script>
+-->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/b-1.6.1/cr-1.5.2/sc-2.0.1/sp-1.0.1/datatables.min.css"/>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/b-1.6.1/cr-1.5.2/sc-2.0.1/sp-1.0.1/datatables.min.js"></script>
+<style>
+body {
+  font-family: Consolas;
+}
+</style>
+
+<h1>Heroes</h1>
+<p style="font-size: 18px">
+	<a href="/">back to main page</a>
+</p>
+
+{{table_all_hero_stats|safe}}
+
+
+<script>
+$(document).ready(function() {
+    $('#table_all_hero_stats').DataTable({
+		'paging': false,
+		"order": [[ 2, "desc" ]],
+		columnDefs:[{
+			targets: 1,
+			className: 'dt-body-left',
+			render: function(data, type, row, meta){
+				if(type === 'display'){
+					data = '<img src="/static/hero_pic/' + row[1]+ '.png" height="36"/>' + data;
+					data = "<a href='/hero/" + row[0] + "'>" + data + '</a>';
+				}
+				return data;
+			}
+			},{
+			targets: '_all',
+			className: 'dt-body-right'
+			}
+		],
+		colReorder: true
+	}
+	);
+} );
+</script>
