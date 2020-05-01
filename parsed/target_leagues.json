@@ -1,0 +1,92 @@
+[
+    {
+        "leagueid": 10452,
+        "name": "The Bucharest Minor",
+        "order": 1,
+        "winner": "EHOME"
+    },
+    {
+        "leagueid": 10482,
+        "name": "The Chongqing Major",
+        "order": 2,
+        "winner": "Team Secret"
+    },
+    {
+        "leagueid": 10733,
+        "name": "StarLadder ImbaTV Dota2 Minor",
+        "order": 3,
+        "winner": "Vici Gaming"
+    },
+    {
+        "leagueid": 10681,
+        "name": "DreamLeague Season 11",
+        "order": 4,
+        "winner": "Vici Gaming"
+    },
+    {
+        "leagueid": 10869,
+        "name": "OGA Dota PIT Minor 2019",
+        "order": 5,
+        "winner": "Ninjas in Pyjamas"
+    },
+    {
+        "leagueid": 10810,
+        "name": "MDL Disneyland\u00ae Paris Major",
+        "order": 6,
+        "winner": "Team Secret"
+    },
+    {
+        "leagueid": 10979,
+        "name": "StarLadder ImbaTV Dota 2 Minor Season 2",
+        "order": 7,
+        "winner": "Ninjas in Pyjamas"
+    },
+    {
+        "leagueid": 10826,
+        "name": "EPICENTER Major 2019",
+        "order": 8,
+        "winner": "Vici Gaming"
+    },
+    {
+        "leagueid": 10749,
+        "name": "The International 2019",
+        "order": 9,
+        "winner": "OG"
+    },
+    {
+        "leagueid": 11371,
+        "name": "Dota Summit 11",
+        "order": 10,
+        "winner": "INVICTUS GAMING"
+    },
+    {
+        "leagueid": 11280,
+        "name": "MDL Chengdu Major",
+        "order": 11,
+        "winner": "TNC Predator"
+    },
+    {
+        "leagueid": 11490,
+        "name": "WePlay! Bukovel Minor 2020",
+        "order": 12,
+        "winner": "Nigma"
+    },
+    {
+        "leagueid": 11517,
+        "name": "Dreamleague Season 13",
+        "order": 13,
+        "winner": "Team Secret"
+    },
+    {
+        "leagueid": 11661,
+        "name": "DPC 2019/2020 Qualifier #3",
+        "order": 14,
+        "winner": "None"
+    },
+    {
+        "leagueid": 11823,
+        "name": "ESL One LA 2020 Online League",
+        "order": 15,
+        "winner": "None"
+    }
+]
